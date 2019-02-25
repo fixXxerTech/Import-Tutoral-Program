@@ -18,9 +18,9 @@ I used the sys module in my case, there are a number of ways to import modules [
 	same directory only.
 
 	The import statement can also be used to get a particular function or class [sub-module] inside an entire script.
-`>>> from <scriptname> import <functionname>`   
-for file in the same directory.
-`>>> from <folder.second_folder.scriptname> import <functionname>`
+`>>> from <scriptname> import <functionname>`<br>   
+for file in the same directory.<br>
+`>>> from <folder.second_folder.scriptname> import <functionname>`<br>
 for file in another directory.
 
 
@@ -29,10 +29,10 @@ for file in another directory.
 	`__import__()` which is an unseen function invoked by the python interpreter when we normally import modules,
 	i.e `import <modulename>`. This module however can be used as such;
 
-`>>> import importlib`
-`>>> importlib.import_module(<scriptname>)`
-or
-`>>> importlib.import_module(<folder.second_folder.scriptname>)`
+`>>> import importlib` <br>
+`>>> importlib.import_module(<scriptname>)`<br>
+or <br>
+`>>> importlib.import_module(<folder.second_folder.scriptname>)`<br>
 You can specify the full path to your scrip like so.
 
 This is recommended because it can be parsed by most recent python interpreter 2.7 or 3
@@ -42,17 +42,17 @@ This is recommended because it can be parsed by most recent python interpreter 2
 	i.e `import sys.path` . Now, this contains all the directories where your python interpreter will check for scripts
 	when it sees an import statement. If you do a ;
 
-`>>> import sys`
-`>>> print(sys.path)`
+`>>> import sys`<br>
+`>>> print(sys.path)`<br>
 
 It prints a list containing all the directorys in the python environment path. These directories are
 	visible to python no matter where python is run from. So I used the `sys.path.append(<myscriptpath>)` method here. This will
 	append a specified path to the python enironment os by using;
 
-`>>> import sys`
-`>>> import os`
+`>>> import sys`<br>
+`>>> import os`<br>
 
-`>>> sys.path.append(os.getcwd())`
+`>>> sys.path.append(os.getcwd())`<br>
 
 I appended the current working directory of my script to the python environment temporarily in memory, during the duration the script is running, that way I was able to import all scripts in thenow appended directory, including the subfolders and modules [my scripts] all the way to the last folder `ter_layer` and in,the modules there, `funcs_ter.py` and `vars_ter.py`, I added functions called `home()` which just called a module names `home_dis.py` from **The parent directory** [which this file is now...look around this folder for the home_dis.py file]... This means all modules in the subfolder and all those in the sub-sub-folder where imported and ran, and them the last modules imported a module from the first [parent folder], all the way round. This is important in writting a professional program so all your functions don't look clustered in one file.
 
